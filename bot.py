@@ -1,5 +1,4 @@
 import os
-import app
 import logging
 from config import Config
 from pyrogram import Client as Tech_VJ
