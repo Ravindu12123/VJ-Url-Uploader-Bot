@@ -19,7 +19,7 @@ class Config(object):
     # Bot Information 
     TECH_VJ_BOT_TOKEN = os.environ.get("TECH_VJ_BOT_TOKEN", "5328388669:AAHoLg2YNuhJEUtF3uH299lsNUl69019iWQ")
     TECH_VJ_BOT_USERNAME = os.environ.get("TECH_VJ_BOT_USERNAME", "Xuprx_bot") # Bot username without @.
-    
+    AUTH_USERS = set(int(x) for x in os.environ.get("auth").split())
     # The Telegram API things
     TECH_VJ_API_ID = int(os.environ.get("TECH_VJ_API_ID", "7322056"))
     TECH_VJ_API_HASH = os.environ.get("TECH_VJ_API_HASH", "89074aa74ed297150b3120914946db5c")
