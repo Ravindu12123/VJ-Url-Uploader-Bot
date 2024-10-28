@@ -25,6 +25,7 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
 @Tech_VJ.on_message(filters.private & filters.command(["help"]))
 async def help_user(bot, update):
+  if update.from_user.id in Config.AUTH_USERS:
     # logger.info(update)
     await AddUser(bot, update)
     await bot.send_message(
@@ -39,6 +40,7 @@ async def help_user(bot, update):
 
 @Tech_VJ.on_message(filters.private & filters.command(["start"]))
 async def start(bot, update):
+  if update.from_user.id in Config.AUTH_USERS:
     if Config.TECH_VJ_UPDATES_CHANNEL is not None:
         back = await handle_force_sub(bot, update)
         if back == 400:
