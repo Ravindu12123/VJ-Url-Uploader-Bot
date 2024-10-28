@@ -23,6 +23,7 @@ from utils import verify_user, check_token, check_verification, get_token
 
 @Tech_VJ.on_message(filters.private & ~filters.via_bot & filters.regex(pattern=".*http.*"))
 async def echo(bot, update):
+  if update.from_user.id in Config.AUTH_USERS:
     if not await check_verification(bot, update.from_user.id) and Config.TECH_VJ == True:
         btn = [[
             InlineKeyboardButton("👨‍💻 ᴠᴇʀɪғʏ", url=await get_token(bot, update.from_user.id, f"https://telegram.me/{Config.TECH_VJ_BOT_USERNAME}?start="))
